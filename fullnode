@@ -1,0 +1,353 @@
+Welcome to Ubuntu 21.04 (GNU/Linux 5.11.0-17-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Sat Oct  2 05:28:56 PM UTC 2021
+
+  System load: 0.09             Memory usage: 0%   Processes:       277
+  Usage of /:  0.2% of 1.17TB   Swap usage:   0%   Users logged in: 0
+
+  => There were exceptions while processing one or more plugins. See
+     /var/log/landscape/sysinfo.log for more information.
+
+
+13 updates can be installed immediately.
+0 of these updates are security updates.
+To see these additional updates run: apt list --upgradable
+
+
+The list of available updates is more than a week old.
+To check for new updates run: sudo apt update
+
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+root@vultr:~#
+root@vultr:~# wget https://golang.org/dl/go1.16.5.darwin-amd64.pkg
+--2021-10-02 17:29:42--  https://golang.org/dl/go1.16.5.darwin-amd64.pkg
+Resolving golang.org (golang.org)... 142.250.68.81, 2607:f8b0:4007:815::2011
+Connecting to golang.org (golang.org)|142.250.68.81|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://dl.google.com/go/go1.16.5.darwin-amd64.pkg [following]
+--2021-10-02 17:29:42--  https://dl.google.com/go/go1.16.5.darwin-amd64.pkg
+Resolving dl.google.com (dl.google.com)... 142.250.68.46, 2607:f8b0:4007:814::20                                          0e
+Connecting to dl.google.com (dl.google.com)|142.250.68.46|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 130599145 (125M) [application/octet-stream]
+Saving to: ‘go1.16.5.darwin-amd64.pkg’
+
+go1.16.5.darwin-amd 100%[===================>] 124.55M  30.7MB/s    in 4.2s
+
+2021-10-02 17:29:46 (29.6 MB/s) - ‘go1.16.5.darwin-amd64.pkg’ saved [130599145/1                                          30599145]
+
+root@vultr:~# export PATH=$PATH:/usr/local/go/bin
+root@vultr:~# go version
+Command 'go' not found, but can be installed with:
+snap install go         # version 1.16.8, or
+apt  install golang-go  # version 2:1.16~0ubuntu1
+apt  install gccgo-go   # version 2:1.16~0ubuntu1
+See 'snap info go' for additional versions.
+root@vultr:~# sudo apt update && sudo apt install curl -y
+Hit:1 http://us.archive.ubuntu.com/ubuntu hirsute InRelease
+Get:2 http://us.archive.ubuntu.com/ubuntu hirsute-updates InRelease [115 kB]
+Get:3 http://us.archive.ubuntu.com/ubuntu hirsute-backports InRelease [101 kB]
+Get:4 http://us.archive.ubuntu.com/ubuntu hirsute-security InRelease [110 kB]
+Get:5 http://us.archive.ubuntu.com/ubuntu hirsute-updates/main amd64 Packages [3                                          87 kB]
+Get:6 http://us.archive.ubuntu.com/ubuntu hirsute-updates/main Translation-en [1                                          02 kB]
+Get:7 http://us.archive.ubuntu.com/ubuntu hirsute-updates/main amd64 c-n-f Metad                                          ata [7,436 B]
+Get:8 http://us.archive.ubuntu.com/ubuntu hirsute-updates/restricted amd64 Packa                                          ges [195 kB]
+Get:9 http://us.archive.ubuntu.com/ubuntu hirsute-updates/restricted Translation                                          -en [27.5 kB]
+Get:10 http://us.archive.ubuntu.com/ubuntu hirsute-updates/restricted amd64 c-n-                                          f Metadata [480 B]
+Get:11 http://us.archive.ubuntu.com/ubuntu hirsute-updates/universe amd64 Packag                                          es [324 kB]
+Get:12 http://us.archive.ubuntu.com/ubuntu hirsute-updates/universe Translation-                                          en [77.5 kB]
+Get:13 http://us.archive.ubuntu.com/ubuntu hirsute-updates/universe amd64 c-n-f                                           Metadata [7,088 B]
+Get:14 http://us.archive.ubuntu.com/ubuntu hirsute-updates/multiverse amd64 Pack                                          ages [7,328 B]
+Get:15 http://us.archive.ubuntu.com/ubuntu hirsute-updates/multiverse Translatio                                          n-en [2,196 B]
+Get:16 http://us.archive.ubuntu.com/ubuntu hirsute-updates/multiverse amd64 c-n-                                          f Metadata [444 B]
+Get:17 http://us.archive.ubuntu.com/ubuntu hirsute-backports/universe amd64 Pack                                          ages [3,708 B]
+Get:18 http://us.archive.ubuntu.com/ubuntu hirsute-backports/universe Translatio                                          n-en [1,252 B]
+Get:19 http://us.archive.ubuntu.com/ubuntu hirsute-backports/universe amd64 c-n-                                          f Metadata [176 B]
+Get:20 http://us.archive.ubuntu.com/ubuntu hirsute-security/main amd64 Packages                                           [256 kB]
+Get:21 http://us.archive.ubuntu.com/ubuntu hirsute-security/main Translation-en                                           [65.8 kB]
+Get:22 http://us.archive.ubuntu.com/ubuntu hirsute-security/main amd64 c-n-f Met                                          adata [4,364 B]
+Get:23 http://us.archive.ubuntu.com/ubuntu hirsute-security/restricted amd64 Pac                                          kages [193 kB]
+Get:24 http://us.archive.ubuntu.com/ubuntu hirsute-security/restricted Translati                                          on-en [27.1 kB]
+Get:25 http://us.archive.ubuntu.com/ubuntu hirsute-security/restricted amd64 c-n                                          -f Metadata [484 B]
+Get:26 http://us.archive.ubuntu.com/ubuntu hirsute-security/universe amd64 Packa                                          ges [217 kB]
+Get:27 http://us.archive.ubuntu.com/ubuntu hirsute-security/universe Translation                                          -en [44.3 kB]
+Get:28 http://us.archive.ubuntu.com/ubuntu hirsute-security/universe amd64 c-n-f                                           Metadata [5,228 B]
+Get:29 http://us.archive.ubuntu.com/ubuntu hirsute-security/multiverse amd64 Pac                                          kages [3,364 B]
+Get:30 http://us.archive.ubuntu.com/ubuntu hirsute-security/multiverse Translati                                          on-en [828 B]
+Get:31 http://us.archive.ubuntu.com/ubuntu hirsute-security/multiverse amd64 c-n                                          -f Metadata [220 B]
+Fetched 2,286 kB in 1s (1,631 kB/s)
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+108 packages can be upgraded. Run 'apt list --upgradable' to see them.
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  eatmydata libeatmydata1 python3-certifi python3-importlib-metadata
+  python3-jinja2 python3-json-pointer python3-jsonpatch python3-jsonschema
+  python3-markupsafe python3-more-itertools python3-pyrsistent
+  python3-requests python3-urllib3 python3-zipp
+Use 'sudo apt autoremove' to remove them.
+The following additional packages will be installed:
+  libcurl4
+The following packages will be upgraded:
+  curl libcurl4
+2 upgraded, 0 newly installed, 0 to remove and 106 not upgraded.
+Need to get 422 kB of archives.
+After this operation, 0 B of additional disk space will be used.
+Get:1 http://us.archive.ubuntu.com/ubuntu hirsute-updates/main amd64 curl amd64                                           7.74.0-1ubuntu2.3 [170 kB]
+Get:2 http://us.archive.ubuntu.com/ubuntu hirsute-updates/main amd64 libcurl4 am                                          d64 7.74.0-1ubuntu2.3 [252 kB]
+Fetched 422 kB in 1s (702 kB/s)
+(Reading database ... 74474 files and directories currently installed.)
+Preparing to unpack .../curl_7.74.0-1ubuntu2.3_amd64.deb ...
+Unpacking curl (7.74.0-1ubuntu2.3) over (7.74.0-1ubuntu2) ...
+Preparing to unpack .../libcurl4_7.74.0-1ubuntu2.3_amd64.deb ...
+Unpacking libcurl4:amd64 (7.74.0-1ubuntu2.3) over (7.74.0-1ubuntu2) ...
+Setting up libcurl4:amd64 (7.74.0-1ubuntu2.3) ...
+Setting up curl (7.74.0-1ubuntu2.3) ...
+Processing triggers for man-db (2.9.4-2) ...
+Processing triggers for libc-bin (2.33-0ubuntu5) ...
+Scanning processes...
+Scanning linux images...
+
+Running kernel seems to be up-to-date.
+
+No services need to be restarted.
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+root@vultr:~# sudo pat update
+sudo: pat: command not found
+root@vultr:~# sudo apt update
+Hit:1 http://us.archive.ubuntu.com/ubuntu hirsute InRelease
+Hit:2 http://us.archive.ubuntu.com/ubuntu hirsute-updates InRelease
+Hit:3 http://us.archive.ubuntu.com/ubuntu hirsute-backports InRelease
+Hit:4 http://us.archive.ubuntu.com/ubuntu hirsute-security InRelease
+Reading package lists... 9%
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+106 packages can be upgraded. Run 'apt list --upgradable' to see them.
+root@vultr:~#
+root@vultr:~# curl https://raw.githubusercontent.com/creationix/nvm/master/insta                                          ll.sh | bash
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 14984  100 14984    0     0  88662      0 --:--:-- --:--:-- --:--:-- 88141
+=> Downloading nvm from git to '/root/.nvm'
+=> Cloning into '/root/.nvm'...
+remote: Enumerating objects: 348, done.
+remote: Counting objects: 100% (348/348), done.
+remote: Compressing objects: 100% (297/297), done.
+remote: Total 348 (delta 39), reused 163 (delta 26), pack-reused 0
+Receiving objects: 100% (348/348), 208.92 KiB | 3.32 MiB/s, done.
+Resolving deltas: 100% (39/39), done.
+* (HEAD detached at FETCH_HEAD)
+  master
+=> Compressing and cleaning up git repository
+
+=> Appending nvm source string to /root/.bashrc
+=> Appending bash_completion source string to /root/.bashrc
+=> Close and reopen your terminal to start using nvm or run the following to use                                           it now:
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads                                           nvm bash_completion
+root@vultr:~# source ~/.profile
+source ~/.bashrc
+root@vultr:~# nvm install 14.17.0
+Downloading and installing node v14.17.0...
+Downloading https://nodejs.org/dist/v14.17.0/node-v14.17.0-linux-x64.tar.xz...
+######################################################################### 100.0%
+Computing checksum with sha256sum
+Checksums matched!
+Now using node v14.17.0 (npm v6.14.13)
+Creating default alias: default -> 14.17.0 (-> v14.17.0)
+root@vultr:~# npm install -g pm2
+npm WARN deprecated uuid@3.4.0: Please upgrade  to version 7 or higher.  Older v                                          ersions may use Math.random() in certain circumstances, which is known to be pro                                          blematic.  See https://v8.dev/blog/math-random for details.
+/root/.nvm/versions/node/v14.17.0/bin/pm2 -> /root/.nvm/versions/node/v14.17.0/l                                          ib/node_modules/pm2/bin/pm2
+/root/.nvm/versions/node/v14.17.0/bin/pm2-docker -> /root/.nvm/versions/node/v14                                          .17.0/lib/node_modules/pm2/bin/pm2-docker
+/root/.nvm/versions/node/v14.17.0/bin/pm2-dev -> /root/.nvm/versions/node/v14.17                                          .0/lib/node_modules/pm2/bin/pm2-dev
+/root/.nvm/versions/node/v14.17.0/bin/pm2-runtime -> /root/.nvm/versions/node/v1                                          4.17.0/lib/node_modules/pm2/bin/pm2-runtime
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@~2.3.2 (node_modules/pm                                          2/node_modules/chokidar/node_modules/fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@                                          2.3.2: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"}                                          )
+
++ pm2@5.1.2
+added 180 packages from 200 contributors in 7.34s
+root@vultr:~# sudo apt install unzip
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  eatmydata libeatmydata1 python3-certifi python3-importlib-metadata
+  python3-jinja2 python3-json-pointer python3-jsonpatch python3-jsonschema
+  python3-markupsafe python3-more-itertools python3-pyrsistent
+  python3-requests python3-urllib3 python3-zipp
+Use 'sudo apt autoremove' to remove them.
+Suggested packages:
+  zip
+The following NEW packages will be installed:
+  unzip
+0 upgraded, 1 newly installed, 0 to remove and 106 not upgraded.
+Need to get 168 kB of archives.
+After this operation, 401 kB of additional disk space will be used.
+0% [Working]
+Get:1 http://us.archive.ubuntu.com/ubuntu hirsute/main amd64 unzip amd64 6.0-26u                                          buntu1 [168 kB]
+Fetched 168 kB in 0s (402 kB/s)
+Selecting previously unselected package unzip.
+(Reading database ... 74474 files and directories currently installed.)
+Preparing to unpack .../unzip_6.0-26ubuntu1_amd64.deb ...
+Unpacking unzip (6.0-26ubuntu1) ...
+Setting up unzip (6.0-26ubuntu1) ...
+Processing triggers for man-db (2.9.4-2) ...
+Scanning processes...
+Scanning linux images...
+
+Running kernel seems to be up-to-date.
+
+No services need to be restarted.
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+root@vultr:~# mkdir bscnode
+root@vultr:~# cd bscnode/
+root@vultr:~/bscnode# wget https://github.com/binance-chain/bsc/releases/downloa                                          d/v1.1.2/mainnet.zip
+--2021-10-02 17:33:32--  https://github.com/binance-chain/bsc/releases/download/                                          v1.1.2/mainnet.zip
+Resolving github.com (github.com)... 192.30.255.113
+Connecting to github.com (github.com)|192.30.255.113|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://github-releases.githubusercontent.com/265775217/2033ffab-538a-                                          4174-bd99-23ce130fe301?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWN                                          JYAX4CSVEH53A%2F20211002%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211002T173                                          333Z&X-Amz-Expires=300&X-Amz-Signature=b7f9c2c64cc9153a243e06834eb55836f0014b1d9                                          c6b99db85e491662dbccbb7&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=265                                          775217&response-content-disposition=attachment%3B%20filename%3Dmainnet.zip&respo                                          nse-content-type=application%2Foctet-stream [following]
+--2021-10-02 17:33:33--  https://github-releases.githubusercontent.com/265775217                                          /2033ffab-538a-4174-bd99-23ce130fe301?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Cre                                          dential=AKIAIWNJYAX4CSVEH53A%2F20211002%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Da                                          te=20211002T173333Z&X-Amz-Expires=300&X-Amz-Signature=b7f9c2c64cc9153a243e06834e                                          b55836f0014b1d9c6b99db85e491662dbccbb7&X-Amz-SignedHeaders=host&actor_id=0&key_i                                          d=0&repo_id=265775217&response-content-disposition=attachment%3B%20filename%3Dma                                          innet.zip&response-content-type=application%2Foctet-stream
+Resolving github-releases.githubusercontent.com (github-releases.githubuserconte                                          nt.com)... 185.199.111.154, 185.199.108.154, 185.199.109.154, ...
+Connecting to github-releases.githubusercontent.com (github-releases.githubuserc                                          ontent.com)|185.199.111.154|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 48189 (47K) [application/octet-stream]
+Saving to: ‘mainnet.zip’
+
+mainnet.zip         100%[===================>]  47.06K  --.-KB/s    in 0.001s
+
+2021-10-02 17:33:33 (68.3 MB/s) - ‘mainnet.zip’ saved [48189/48189]
+
+root@vultr:~/bscnode# unzip mainnet.zip
+Archive:  mainnet.zip
+  inflating: config.toml
+  inflating: genesis.json
+root@vultr:~/bscnode# wget  https://github.com/binance-chain/bsc/releases/downlo                                          ad/v1.1.2/geth_linux
+--2021-10-02 17:33:44--  https://github.com/binance-chain/bsc/releases/download/                                          v1.1.2/geth_linux
+Resolving github.com (github.com)... 192.30.255.113
+Connecting to github.com (github.com)|192.30.255.113|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://github-releases.githubusercontent.com/265775217/f8b81c93-4729-                                          4974-8277-e56cffbe3f10?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWN                                          JYAX4CSVEH53A%2F20211002%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211002T173                                          344Z&X-Amz-Expires=300&X-Amz-Signature=0a31251bbdd8169d19217a22966353c6b98189567                                          2ac518700b4abef5a5998b0&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=265                                          775217&response-content-disposition=attachment%3B%20filename%3Dgeth_linux&respon                                          se-content-type=application%2Foctet-stream [following]
+--2021-10-02 17:33:44--  https://github-releases.githubusercontent.com/265775217                                          /f8b81c93-4729-4974-8277-e56cffbe3f10?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Cre                                          dential=AKIAIWNJYAX4CSVEH53A%2F20211002%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Da                                          te=20211002T173344Z&X-Amz-Expires=300&X-Amz-Signature=0a31251bbdd8169d19217a2296                                          6353c6b981895672ac518700b4abef5a5998b0&X-Amz-SignedHeaders=host&actor_id=0&key_i                                          d=0&repo_id=265775217&response-content-disposition=attachment%3B%20filename%3Dge                                          th_linux&response-content-type=application%2Foctet-stream
+Resolving github-releases.githubusercontent.com (github-releases.githubuserconte                                          nt.com)... 185.199.110.154, 185.199.109.154, 185.199.108.154, ...
+Connecting to github-releases.githubusercontent.com (github-releases.githubuserc                                          ontent.com)|185.199.110.154|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 48681360 (46M) [application/octet-stream]
+Saving to: ‘geth_linux’
+
+geth_linux          100%[===================>]  46.43M   104MB/s    in 0.4s
+
+2021-10-02 17:33:45 (104 MB/s) - ‘geth_linux’ saved [48681360/48681360]
+
+root@vultr:~/bscnode# sudo chmod 777 . -R
+root@vultr:~/bscnode# ./geth_linux --datadir node init genesis.json
+INFO [10-02|17:33:54.419] Maximum peer count                       ETH=50 LES=0                                           total=50
+INFO [10-02|17:33:54.419] Smartcard socket not found, disabling    err="stat /ru                                          n/pcscd/pcscd.comm: no such file or directory"
+INFO [10-02|17:33:54.420] Set global gas cap                       cap=25,000,00                                          0
+INFO [10-02|17:33:54.420] Allocated cache and file handles         database=/roo                                          t/bscnode/node/geth/chaindata cache=16.00MiB handles=16
+INFO [10-02|17:33:54.423] Writing custom genesis block
+INFO [10-02|17:33:54.425] Persisted trie from memory database      nodes=15 size                                          =2.32KiB time="577.684µs" gcnodes=0 gcsize=0.00B gctime=0s livenodes=1 livesize=                                          0.00B
+INFO [10-02|17:33:54.425] Successfully wrote genesis state         database=chai                                          ndata                         hash=0d2184..d57b5b
+INFO [10-02|17:33:54.425] Allocated cache and file handles         database=/roo                                          t/bscnode/node/geth/lightchaindata cache=16.00MiB handles=16
+INFO [10-02|17:33:54.430] Writing custom genesis block
+INFO [10-02|17:33:54.431] Persisted trie from memory database      nodes=15 size                                          =2.32KiB time="260.718µs" gcnodes=0 gcsize=0.00B gctime=0s livenodes=1 livesize=                                          0.00B
+INFO [10-02|17:33:54.431] Successfully wrote genesis state         database=ligh                                          tchaindata                         hash=0d2184..d57b5b
+root@vultr:~/bscnode# sudo chmod 777 . -R
+root@vultr:~/bscnode# nano start.sh
+root@vultr:~/bscnode# pm2 start start.sh -n node
+
+                        -------------
+
+__/\\\\\\\\\\\\\____/\\\\____________/\\\\____/\\\\\\\\\_____
+ _\/\\\/////////\\\_\/\\\\\\________/\\\\\\__/\\\///////\\\___
+  _\/\\\_______\/\\\_\/\\\//\\\____/\\\//\\\_\///______\//\\\__
+   _\/\\\\\\\\\\\\\/__\/\\\\///\\\/\\\/_\/\\\___________/\\\/___
+    _\/\\\/////////____\/\\\__\///\\\/___\/\\\________/\\\//_____
+     _\/\\\_____________\/\\\____\///_____\/\\\_____/\\\//________
+      _\/\\\_____________\/\\\_____________\/\\\___/\\\/___________
+       _\/\\\_____________\/\\\_____________\/\\\__/\\\\\\\\\\\\\\\_
+        _\///______________\///______________\///__\///////////////__
+
+
+                          Runtime Edition
+
+        PM2 is a Production Process Manager for Node.js applications
+                     with a built-in Load Balancer.
+
+                Start and Daemonize any application:
+                $ pm2 start app.js
+
+                Load Balance 4 instances of api.js:
+                $ pm2 start api.js -i 4
+
+                Monitor in production:
+                $ pm2 monitor
+
+                Make pm2 auto-boot at server restart:
+                $ pm2 startup
+
+                To go further checkout:
+                http://pm2.io/
+
+
+                        -------------
+
+[PM2] Spawning PM2 daemon with pm2_home=/root/.pm2
+[PM2] PM2 Successfully daemonized
+[PM2] Starting /root/bscnode/start.sh in fork_mode (1 instance)
+[PM2] Done.
+┌────┬────────────────────┬──────────┬──────┬───────────┬──────────┬──────────┐
+│ id │ name               │ mode     │ ↺    │ status    │ cpu      │ memory   │
+├────┼────────────────────┼──────────┼──────┼───────────┼──────────┼──────────┤
+│ 0  │ node               │ fork     │ 0    │ online    │ 0%       │ 3.4mb    │
+└────┴────────────────────┴──────────┴──────┴───────────┴──────────┴──────────┘
+root@vultr:~/bscnode# pm2 log 0
+[TAILING] Tailing last 15 lines for [0] process (change the value with --lines o                                          ption)
+/root/.pm2/logs/node-out.log last 15 lines:
+/root/.pm2/logs/node-error.log last 15 lines:
+0|node     | INFO [10-02|17:34:23.737] Starting Geth on Ethereum mainnet...
+0|node     | INFO [10-02|17:34:23.741] Maximum peer count                                                                 ETH=30 LES=0 total=30
+0|node     | INFO [10-02|17:34:23.741] Smartcard socket not found, disabling                                              err="stat /run/pcscd/pcscd.comm: no such file or directory"
+0|node     | WARN [10-02|17:34:23.741] Option nousb is deprecated and USB is dea                                          ctivated by default. Use --usb to enable
+
+^C
+root@vultr:~/bscnode# /root/bscnode/geth_linux attach http://0.0.0.0:8545 --exec                                           eth.syncing
+{
+  currentBlock: 3,
+  highestBlock: 11427811,
+  knownStates: 52738,
+  pulledStates: 7586,
+  startingBlock: 0
+}
+root@vultr:~/bscnode# /root/bscnode/geth_linux attach http://0.0.0.0:8545 --exec                                           eth.syncing
+{
+  currentBlock: 3,
+  highestBlock: 11427811,
+  knownStates: 72548,
+  pulledStates: 28322,
+  startingBlock: 0
+}
+root@vultr:~/bscnode# /root/bscnode/geth_linux attach http://0.0.0.0:8545 --exec eth.syn 
